@@ -10,11 +10,14 @@ const Navigation = () => {
       <nav className="navigation">
         <NavLink className="logo-container" to="/">
           <CrownLogo />
-          <span className="logo-text">King's</span>
+          <span className="logo-text">King's 'n Queen's</span>
         </NavLink>
         <ul className="nav-links-container">
           <li className="nav-link">
             <NavLink className="nav-link">SHOP</NavLink>
+          </li>
+          <li className="nav-link">
+            <NavLink className="nav-link">CONTACT</NavLink>
           </li>
           <li className="nav-link">
             <NavLink className="nav-link" to="sign-in">
@@ -22,10 +25,7 @@ const Navigation = () => {
             </NavLink>
           </li>
           <li className="nav-link">
-            <NavLink className="nav-link"></NavLink>
-          </li>
-          <li className="nav-link">
-            <NavLink className="nav-link"></NavLink>
+            <NavLink className="nav-link">CART</NavLink>
           </li>
         </ul>
       </nav>
