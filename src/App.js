@@ -1,37 +1,21 @@
-import Directory from "./components/directory/Directory";
+import Home from "./routes/home/Home.component";
+import Navigation from "./routes/navigation/Navigation.component";
+import SingIn from "./routes/sing-in/sing-in";
+
+import { Route, Routes, Navigate } from "react-router-dom";
 
 import "./categories.style.scss";
 
-const categories = [
-  {
-    id: 1,
-    title: "hats",
-    imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
-  },
-  {
-    id: 2,
-    title: "jackets",
-    imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
-  },
-  {
-    id: 3,
-    title: "sneakers",
-    imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
-  },
-  {
-    id: 4,
-    title: "Queens",
-    imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
-  },
-  {
-    id: 5,
-    title: "Kings",
-    imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
-  },
-];
-
 const App = () => {
-  return <Directory data={categories} />;
+  return (
+    <Routes>
+      <Route path="/" element={<Navigate to="/home" replace />} />
+      <Route path="/home" element={<Navigation />}>
+        <Route index path="" element={<Home />} />
+        <Route index path="sign-in" element={<SingIn />} />
+      </Route>
+    </Routes>
+  );
 };
 
 export default App;
