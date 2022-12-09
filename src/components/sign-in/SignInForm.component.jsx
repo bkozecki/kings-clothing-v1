@@ -43,7 +43,7 @@ const SignInForm = () => {
 
     try {
       const response = await signInAuthWithEmailAndPassword(email, password);
-      console.log(response);
+      // console.log(response);
       resetFormFields();
     } catch (error) {
       switch (error.code) {
@@ -73,7 +73,7 @@ const SignInForm = () => {
           onChange={handleFormInput}
         />
         <FormInput
-          label="password"
+          label="Password"
           name="password"
           type="password"
           value={password}

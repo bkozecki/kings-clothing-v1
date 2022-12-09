@@ -1,18 +1,21 @@
 import Home from "./routes/home/Home.component";
 import Navigation from "./routes/navigation/Navigation.component";
 import SingIn from "./routes/sing-in/sing-in";
+import Shop from "./routes/shop/Shop.component.jsx";
+import Checkout from "./components/checkout/checkout.component";
 
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import "./categories.style.scss";
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/home" replace />} />
-      <Route path="/home" element={<Navigation />}>
-        <Route index path="" element={<Home />} />
-        <Route index path="sign-in" element={<SingIn />} />
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path="shop" element={<Shop />} />
+        <Route path="sign-in" element={<SingIn />} />
+        <Route path="checkout" element={<Checkout />} />
       </Route>
     </Routes>
   );

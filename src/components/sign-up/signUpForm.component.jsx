@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   createAuthUserWithEmailAndPassword,
   createDocFromAuth,
@@ -46,6 +46,7 @@ const SignUpForm = () => {
       const userData = await createDocFromAuth(response, {
         displayName: userName,
       });
+
       resetFormFields();
       //   console.log(userData);
     } catch (error) {
@@ -78,7 +79,7 @@ const SignUpForm = () => {
           onChange={handleFormInput}
         />
         <FormInput
-          label="password"
+          label="Password"
           name="password"
           type="password"
           value={password}
