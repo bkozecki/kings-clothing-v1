@@ -20,12 +20,12 @@ const categories = [
   },
   {
     id: 4,
-    title: "Queens",
+    title: "womens",
     imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
   },
   {
     id: 5,
-    title: "Kings",
+    title: "mens",
     imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
   },
 ];
