@@ -10,7 +10,16 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  getDocs,
+  setDoc,
+  collection,
+  writeBatch,
+  query,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDylaqJrXlYPB-Av7X3Ky72Ztdjlr9qfyU",
@@ -48,6 +57,34 @@ export const signInWithGoogleRedirect = () =>
 
 // our database
 export const db = getFirestore();
+
+export const addCollectionAndDocuments = async (colectionKey, objectsToAdd) => {
+  // refrence to a collection of our objects from database(where we store stuff)
+  const collectionRef = collection(db, colectionKey);
+  // return a batch from a database (we create a batch of our objects to pass it to database in one succesion)
+  const batch = writeBatch(db);
+
+  objectsToAdd.forEach((object) => {
+    const docRef = doc(collectionRef, object.title.toLowerCase());
+    batch.set(docRef, object);
+  });
+  await batch.commit();
+  console.log("done");
+};
+
+export const getCategoriesAndDocuments = async () => {
+  const collectionRef = collection(db, "categories");
+  const q = query(collectionRef);
+
+  const querySnapshot = await getDocs(q);
+  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const { title, items } = docSnapshot.data();
+    acc[title.toLowerCase()] = items;
+    return acc;
+  }, {});
+
+  return categoryMap;
+};
 
 // method to get user data and store it inside firestorm
 export const createDocFromAuth = async (userAuth, additionalInfo = {}) => {
