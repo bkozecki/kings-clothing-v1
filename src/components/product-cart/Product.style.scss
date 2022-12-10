@@ -6,6 +6,7 @@
   align-items: center;
   position: relative;
   transition: all 0.2s;
+  padding: 1rem;
 
   img {
     width: 100%;
@@ -39,15 +40,16 @@
     height: 5%;
     display: flex;
     justify-content: space-between;
-    font-size: 18px;
+    font-size: 20px;
 
     .name {
-      width: 90%;
+      width: 85%;
       margin-bottom: 15px;
     }
 
     .price {
-      width: 10%;
+      width: 15%;
+      font-weight: bolder;
     }
   }
 }

@@ -1,7 +1,19 @@
 .category-preview-container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  padding-bottom: 70px;
+  h2 {
+    width: 40%;
+    padding-bottom: 1rem;
+    margin: auto;
+    text-align: center;
+    border-bottom: 2px solid black;
+    margin-bottom: 30px;
+    transition: all 0.2s;
+  }
+  h2:hover {
+    transform: translateY(-1rem);
+  }
 
   .title {
     font-size: 28px;
