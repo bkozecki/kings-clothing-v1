@@ -27,13 +27,13 @@ const Navigation = () => {
         </NavLink>
         <ul className="nav-links-container">
           <li className="nav-link">
-            <NavLink to="shop" className="nav-link">
+            <NavLink
+              to="shop"
+              className={(navData) =>
+                navData.isActive ? "nav-link active" : "nav-link"
+              }
+            >
               SHOP
-            </NavLink>
-          </li>
-          <li className="nav-link">
-            <NavLink to="" className="nav-link">
-              CONTACT
             </NavLink>
           </li>
           <li className="nav-link">
@@ -49,7 +49,7 @@ const Navigation = () => {
           </li>
           <CartIcon onClick={showCartModal} />
         </ul>
-        {cartModalVisiable && <CartDropdown />}
+        {cartModalVisiable && <CartDropdown mouseLeave={showCartModal} />}
       </nav>
       <Outlet />
     </Fragment>

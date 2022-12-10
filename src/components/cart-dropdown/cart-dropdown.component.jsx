@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./cart-dropdown.style.scss";
@@ -6,7 +6,7 @@ import Button from "../button/Button.component";
 import CartItem from "../cart-item/cart-item.component";
 import { CartContext } from "../context/CartContex";
 
-const CartDropdown = () => {
+const CartDropdown = (props) => {
   const { cartItems } = useContext(CartContext);
 
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const CartDropdown = () => {
   const goToCheckOut = () => navigate("checkout");
 
   return (
-    <div className="cart-dropdown-container">
+    <div className="cart-dropdown-container" onMouseLeave={props.mouseLeave}>
       <div className="cart-items">
         {cartItems.length ? (
           cartItems.map((cartItem) => (

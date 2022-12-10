@@ -16,7 +16,9 @@
     padding: 25px;
 
     .logo-text {
-      padding-left: 20px;
+      padding-left: 40px;
+      font-family: "Lobster", cursive;
+      font-size: 30px;
     }
   }
 
@@ -30,6 +32,10 @@
     .nav-link {
       padding: 10px 15px;
       cursor: pointer;
+      transition: all 0.2s;
+    }
+    .active {
+      border-bottom: 2px solid black;
     }
   }
 }

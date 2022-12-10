@@ -14,7 +14,7 @@ const DirectoryItem = (props) => {
         }}
       ></div>
       <div className="directory-body">
-        <Link to={"shop/" + title}>
+        <Link to={"shop/" + title} className="directory-body-link">
           <h2>{title}</h2>
           <p>Shop Now</p>
         </Link>
