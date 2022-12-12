@@ -91,7 +91,7 @@ export const createDocFromAuth = async (userAuth, additionalInfo = {}) => {
   if (!userAuth) return;
   // check if there is existing doc refrence (obj from firestore regarding instances of doc model)
   const userDocRef = doc(db, "users", userAuth.user.uid); //1.database 2.collectio 3.identyfier(uniqe id)
-  console.log(userDocRef);
+  // console.log(userDocRef);
 
   //   users data
   const userSnapshot = await getDoc(userDocRef);

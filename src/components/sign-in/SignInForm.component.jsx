@@ -17,6 +17,7 @@ const defaultState = {
 
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultState);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const { email, password } = formFields;
   const handleFormInput = (ev) => {
@@ -25,12 +26,10 @@ const SignInForm = () => {
       ...prevState,
       [name]: value,
     }));
-    // console.log(formFields);
   };
 
   const logInGoogleUser = async () => {
     const response = await signInWithGooglePopup();
-    // console.log(response);
     const userDocRef = await createDocFromAuth(response);
   };
 
@@ -43,7 +42,6 @@ const SignInForm = () => {
 
     try {
       const response = await signInAuthWithEmailAndPassword(email, password);
-      // console.log(response);
       resetFormFields();
     } catch (error) {
       switch (error.code) {
@@ -59,6 +57,7 @@ const SignInForm = () => {
     }
   };
 
+  console.log(loggedIn);
   return (
     <div className="sing-up-container">
       <h2>Already have an account?</h2>

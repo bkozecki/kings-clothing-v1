@@ -1,13 +1,15 @@
 import React from "react";
-import ".SignModal.style.scss";
+import "./SignModal.styles.scss";
 
-const SignModal = ({ text, result }) => {
+const SignModal = ({ data }) => {
+  const { text, result } = data;
+  console.log(text, result);
   const style = {
-    backgroundColor: result === "succes" ? "" : "",
+    backgroundColor: result === "succes" ? "green" : "red",
   };
   return (
-    <div className="modal-container">
-      <p className={style}>{text}</p>
+    <div style={style} className="modal-container">
+      <p>{text}</p>
     </div>
   );
 };
