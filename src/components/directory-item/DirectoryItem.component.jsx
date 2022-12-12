@@ -6,7 +6,7 @@ import "./DirectoryItem.style.scss";
 const DirectoryItem = (props) => {
   const { title, imageUrl } = props.data;
   return (
-    <div className="directory-item-container">
+    <Link to={"shop/" + title} className=" directory-item-container">
       <div
         className="background-image"
         style={{
@@ -14,12 +14,10 @@ const DirectoryItem = (props) => {
         }}
       ></div>
       <div className="directory-body">
-        <Link to={"shop/" + title} className="directory-body-link">
-          <h2>{title}</h2>
-          <p>Shop Now</p>
-        </Link>
+        <h2>{title}</h2>
+        <p>Shop Now</p>
       </div>
-    </div>
+    </Link>
   );
 };
 

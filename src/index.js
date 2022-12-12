@@ -4,6 +4,9 @@ import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { Elements } from "@stripe/react-stripe-js";
+import { stripePromise } from "./utils/stripe/stripe";
+
 import ContextUser from "./components/context/UserContext";
 import CategoriesProvider from "./components/context/CategoriesContext";
 import CartProvider from "./components/context/CartContex";
@@ -14,7 +17,9 @@ ReactDOM.render(
       <ContextUser>
         <CategoriesProvider>
           <CartProvider>
-            <App />
+            <Elements stripe={stripePromise}>
+              <App />
+            </Elements>
           </CartProvider>
         </CategoriesProvider>
       </ContextUser>

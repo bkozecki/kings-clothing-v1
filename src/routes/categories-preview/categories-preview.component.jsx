@@ -1,6 +1,5 @@
 import { useContext, Fragment } from "react";
 import { CategoriesContext } from "../../components/context/CategoriesContext";
-import ProductCard from "../../components/product-cart/Product.component";
 import CategoryPreview from "../../components/category-preview/CategoryPreview.component";
 
 import React from "react";
