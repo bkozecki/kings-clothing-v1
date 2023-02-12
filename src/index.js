@@ -6,6 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Elements } from "@stripe/react-stripe-js";
 import { stripePromise } from "./utils/stripe/stripe";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 import ContextUser from "./components/context/UserContext";
 import CategoriesProvider from "./components/context/CategoriesContext";
@@ -13,17 +15,19 @@ import CartProvider from "./components/context/CartContex";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ContextUser>
-        <CategoriesProvider>
-          <CartProvider>
-            <Elements stripe={stripePromise}>
-              <App />
-            </Elements>
-          </CartProvider>
-        </CategoriesProvider>
-      </ContextUser>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ContextUser>
+          <CategoriesProvider>
+            <CartProvider>
+              <Elements stripe={stripePromise}>
+                <App />
+              </Elements>
+            </CartProvider>
+          </CategoriesProvider>
+        </ContextUser>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
